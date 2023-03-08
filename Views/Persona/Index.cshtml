@@ -1,0 +1,45 @@
+﻿@model List<Prueba2Parcial.Models.TableViewModels.PersonaTableViewModel>
+@{
+    ViewBag.Title = "Persona";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr class="bg-info">
+                    <th> CUSTOMERID </th>
+                    <th> CUSTOMERNAME </th>
+                    <th> CONTACTNAME </th>
+                    <th> ADDRESS </th>
+                    <th> CITY </th>
+                    <th> POSTALCODE </th>
+                    <th> COUNTRY </th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                @foreach (var oPersona in Model)
+                {
+                    <tr>
+                        <th> @oPersona.CustomerId </th>
+                        <td> @oPersona.CustomerName</td>
+                        <td> @oPersona.ContactName </td>
+                        <td> @oPersona.Address </td>
+                        <td> @oPersona.City </td>
+                        <td> @oPersona.PostalCode </td>
+                        <td> @oPersona.Country </td>
+                        <td>
+                            <button type="button" class="btn btn-info" onclick="document.location.href='@Url.Content("~/Persona/Editar/" + @oPersona.CustomerId)'">Editar</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger" onclick="document.location.href='@Url.Content("~/Persona/Eliminar/" + @oPersona.CustomerId)'">Eliminar</button>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        @Html.ActionLink("Nuevo", "Nuevo", "Persona")
+    </div>
+</div>

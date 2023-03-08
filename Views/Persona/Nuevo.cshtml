@@ -1,0 +1,43 @@
+﻿@model Prueba2Parcial.Models.ViewModels.PersonaViewModels
+@{
+    ViewBag.Title = "Nueva Persona";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-lg-12">
+        @using (Html.BeginForm("Nuevo", "Persona", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.LabelFor(d => d.CustomerName)
+            @Html.TextBoxFor(d => d.CustomerName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CustomerName)
+            <br />
+            @Html.LabelFor(d => d.ContactName)
+            @Html.TextBoxFor(d => d.ContactName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ContactName)
+            <br />
+            @Html.LabelFor(d => d.Address)
+            @Html.TextBoxFor(d => d.Address, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Address)
+            <br />
+            @Html.LabelFor(d => d.City)
+            @Html.TextBoxFor(d => d.City, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.City)
+            <br />
+            @Html.LabelFor(d => d.PostalCode)
+            @Html.TextBoxFor(d => d.PostalCode, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.PostalCode)
+            <br />
+            @Html.LabelFor(d => d.Country)
+            @Html.TextBoxFor(d => d.Country, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Country)
+            <br />
+            <div style="text-align:right;">
+                <input type="submit" class="btn btn-success" value="Guardar" />
+            </div>
+        }
+    </div>
+</div>
